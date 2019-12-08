@@ -1,119 +1,65 @@
 package model;
 
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
-
-import com.alibaba.fastjson.annotation.JSONField;
 
 public class Product {
+	private String pID;//��Ʒid
 
-	private Integer id;
-	private java.lang.String proName;//商品名称
-	private java.lang.String proPicture;//商品图片
-	@JSONField(format = "yyyy-MM-dd")
-	private Date createTime;//发布时间
-	private Double proPrice;//商品单价
-	private Integer proHassum;//商品剩余量
-	private java.lang.String proDesc;//商品描述
-	private Integer proClicknum;//商品点击数量
-	private Integer creatorId;//发布者id
-	private Integer classifyId;//分类id
-	private Integer type;//0供信息，1求信息
-	private Classify classify;//关联实体类
-	private User user;//关联实体类
-
-	
-	public Product() {
+	private String issueName;
+	private String sID;
+	private String pictureSRC;
+	private float price;
+	private int cid;   //����id
+	private String introduction;
+	public Product(){
+		
 	}
-	
-	public Integer getCreatorId() {
-		return creatorId;
+	public Product(String pID,String issuename,String sID,String  pictureSRC,float price,int cid,String introduction) {
+		this.pID =pID;
+		this.issueName = issuename;
+		this.sID = sID;
+		this.pictureSRC = pictureSRC;
+		this.price = price;
+		this.cid = cid;
+		this.introduction = introduction;
 	}
-
-	public void setCreatorId(Integer creatorId) {
-		this.creatorId = creatorId;
+	public void setIssueName(String issueName) {
+		this.issueName = issueName;
 	}
-
-	public Integer getClassifyId() {
-		return classifyId;
+	public String getPictureSRC() {
+		return pictureSRC;
 	}
-
-	public void setClassifyId(Integer classifyId) {
-		this.classifyId = classifyId;
+	public void setPictureSRC(String pictureSRC) {
+		this.pictureSRC = pictureSRC;
 	}
-
-	
-	public Classify getClassify() {
-		return classify;
+	public float getPrice() {
+		return price;
 	}
-	public void setClassify(Classify classify) {
-		this.classify = classify;
+	public void setPrice(float price) {
+		this.price = price;
 	}
-	public User getUser() {
-		return user;
+	public String getIntroduction() {
+		return introduction;
 	}
-	public void setUser(User user) {
-		this.user = user;
+	public void setIntroduction(String introduction) {
+		this.introduction = introduction;
 	}
-	
-	public Integer getId() {
-		return id;
+	public String getpID() {
+		return pID;
 	}
-	public void setId(Integer id) {
-		this.id = id;
+	public void setpID(String pID) {
+		this.pID = pID;
 	}
-	public java.lang.String getProName() {
-		return proName;
+	public String getsID() {
+		return sID;
 	}
-	public void setProName(java.lang.String proName) {
-		this.proName = proName;
+	public void setsID(String sID) {
+		this.sID = sID;
 	}
-	public java.lang.String getProPicture() {
-		return proPicture;
+	public int getCid() {
+		return cid;
 	}
-	public void setProPicture(java.lang.String proPicture) {
-		this.proPicture = proPicture;
+	public void setCid(int cid) {
+		this.cid = cid;
 	}
-	public Date getCreateTime() {
-		return createTime;
-	}
-	public void setCreateTime(Date createTime) {
-		this.createTime = createTime;
-	}
-	public Double getProPrice() {
-		return proPrice;
-	}
-	public void setProPrice(Double proPrice) {
-		this.proPrice = proPrice;
-	}
-	public Integer getProHassum() {
-		return proHassum;
-	}
-	public void setProHassum(Integer proHassum) {
-		this.proHassum = proHassum;
-	}
-	public java.lang.String getProDesc() {
-		return proDesc;
-	}
-	public void setProDesc(java.lang.String proDesc) {
-		this.proDesc = proDesc;
-	}
-	public Integer getProClicknum() {
-		return proClicknum;
-	}
-	public void setProClicknum(Integer proClicknum) {
-		this.proClicknum = proClicknum;
-	}
-	
-	public Integer getType() {
-		return type;
-	}
-	public void setType(Integer type) {
-		this.type = type;
-	}
-	
-	
-	
 	
 }

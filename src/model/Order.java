@@ -1,143 +1,43 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
 public class Order {
 
-	private String id;
-	private Integer status;//订单状态（0：待付款 1:已完成  ）
-	private java.util.Date createTime;//订单生成时间
-	private java.lang.String address;//送货地址
-	private java.lang.String personName;//收货人
-	private String phone;//联系电话
-	private Double amount;//订单金额
-	private java.lang.String payWay;//付款方式
-	private String creatorId;//发布者id
-	private Set<OrderItem> orderItem=new HashSet<OrderItem>();
-	private User user;//购买者
-	private String creatorName;//发布者名称(表没有字段，仅用于页面显示)
-
+	int oid;
+	int sum;
+	int sellOrPur;
+	ArrayList<Product> products;
 	public Order() {
+		ArrayList<Product> products = new ArrayList<Product>();
+		
 	}
-
-
-	public String getCreatorName() {
-		return creatorName;
+	public int getOid() {
+		return oid;
 	}
-
-
-	public void setCreatorName(String creatorName) {
-		this.creatorName = creatorName;
+	public void setOid(int oid) {
+		this.oid = oid;
 	}
-
-
-	public User getUser() {
-		return user;
+	public int getSum() {
+		return sum;
 	}
-
-	public void setUser(User user) {
-		this.user = user;
+	public void setSum(int sum) {
+		this.sum = sum;
 	}
-
-
-	public String getCreatorId() {
-		return creatorId;
+	public int getSellOrPur() {
+		return sellOrPur;
 	}
-
-	public void setCreatorId(String creatorId) {
-		this.creatorId = creatorId;
+	public void setSellOrPur(int sellOrPur) {
+		this.sellOrPur = sellOrPur;
 	}
-
-	public java.lang.String getPayWay() {
-		return payWay;
+	public ArrayList<Product> getProducts() {
+		return products;
 	}
-
-
-	public void setPayWay(java.lang.String payWay) {
-		this.payWay = payWay;
+	public void setProducts(ArrayList<Product> products) {
+		this.products = products;
 	}
-
-
-	public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-
-    public Integer getStatus() {
-		return status;
-	}
-
-
-	public void setStatus(Integer status) {
-		this.status = status;
-	}
-
-
-	public java.util.Date getCreateTime() {
-		return createTime;
-	}
-
-
-	public void setCreateTime(java.util.Date createTime) {
-		this.createTime = createTime;
-	}
-
-
-	public java.lang.String getAddress() {
-		return address;
-	}
-
-
-	public void setAddress(java.lang.String address) {
-		this.address = address;
-	}
-
-
-	public java.lang.String getPersonName() {
-		return personName;
-	}
-
-
-	public void setPersonName(java.lang.String personName) {
-		this.personName = personName;
-	}
-
-
-	public String getPhone() {
-		return phone;
-	}
-
-
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
-
-
-	public Double getAmount() {
-		return amount;
-	}
-
-
-	public void setAmount(Double amount) {
-		this.amount = amount;
-	}
-
-
-    public Set<OrderItem> getOrderItem() {
-        return orderItem;
-    }
-
-
-    public void setOrderItem(Set<OrderItem> orderItem) {
-        this.orderItem = orderItem;
-    }
-
-
    
 	
 }

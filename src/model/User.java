@@ -1,83 +1,51 @@
 package model;
 
-
 public class User {
 
-	private java.lang.Integer uid;
-	private java.lang.String userName;
-	private java.lang.String headPic;
-	private java.lang.String schoolClass;//班级
-	private java.lang.Integer sex;//性别（男：0   女：1）
-	private java.lang.String address;
-	private java.lang.String phone;
-	private java.lang.String password;
-	private java.lang.String qusetion;//密码找回的设置问题
-	private java.lang.String answer;//密码找回设置答案
+	private String sID;
+	private String userName; 
+	private String sex;
+	private String phoneNum;
+	private String password;
+	private int sellNum;
 	
-	
-	public User() {
-	}
-	public java.lang.Integer getUid() {
-		return uid;
-	}
-	public void setUid(java.lang.Integer uid) {
-		this.uid = uid;
-	}
-	public java.lang.String getUserName() {
+	public String getUserName() {
 		return userName;
 	}
-	public void setUserName(java.lang.String userName) {
+	public void setUserName(String userName) {
 		this.userName = userName;
 	}
-	public java.lang.String getHeadPic() {
-		return headPic;
-	}
-	public void setHeadPic(java.lang.String headPic) {
-		this.headPic = headPic;
-	}
-	public java.lang.String getSchoolClass() {
-		return schoolClass;
-	}
-	public void setSchoolClass(java.lang.String schoolClass) {
-		this.schoolClass = schoolClass;
-	}
-	public java.lang.Integer getSex() {
-		return sex;
-	}
-	public void setSex(java.lang.Integer sex) {
-		this.sex = sex;
-	}
-	public java.lang.String getAddress() {
-		return address;
-	}
-	public void setAddress(java.lang.String address) {
-		this.address = address;
-	}
-	public java.lang.String getPhone() {
-		return phone;
-	}
-	public void setPhone(java.lang.String phone) {
-		this.phone = phone;
-	}
-	public java.lang.String getPassword() {
+
+	public String getPassword() {
 		return password;
 	}
-	public void setPassword(java.lang.String password) {
+	public void setPassword(String password) {
 		this.password = password;
 	}
-	public java.lang.String getQusetion() {
-		return qusetion;
+
+	public String getsID() {
+		return sID;
 	}
-	public void setQusetion(java.lang.String qusetion) {
-		this.qusetion = qusetion;
+	public void setsID(String sID) {
+		this.sID = sID;
 	}
-	public java.lang.String getAnswer() {
-		return answer;
+	public String getSex() {
+		return sex;
 	}
-	public void setAnswer(java.lang.String answer) {
-		this.answer = answer;
+	public void setSex(String sex) {
+		this.sex = sex;
 	}
-	
-	
-	
+	public String getPhoneNum() {
+		return phoneNum;
+	}
+	public void setPhoneNum(String phoneNum) {
+		this.phoneNum = phoneNum;
+	}
+	public int getSellNum() {
+		return sellNum;
+	}
+	public void setSellNum(int sellNum) {
+		this.sellNum = sellNum;
+	}
+		
 }

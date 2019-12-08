@@ -2,30 +2,50 @@ package model;
 
 public class Classify {
 
-	private Integer cid;
-	private java.lang.String classifyName;//分类名称
-	private Integer ClassifySort;//分类排序
+	private int cid;
+	private String classifyName;
+	private int ClassifySort;
 	
-	public Classify() {
+	public Classify()
+	{
+		
 	}
-	public Integer getCid() {
+	public Classify(int cid,String classifyName,int ClassyfySort) {
+		this.cid = cid;
+		this.classifyName = classifyName;
+		this.ClassifySort = ClassyfySort;
+	}
+
+	public int getCid() {
 		return cid;
 	}
-	public void setCid(Integer cid) {
+
+	public void setCid(int cid) {
 		this.cid = cid;
 	}
-	public java.lang.String getClassifyName() {
+
+	public String getClassifyName() {
 		return classifyName;
 	}
-	public void setClassifyName(java.lang.String classifyName) {
+
+	public void setClassifyName(String classifyName) {
 		this.classifyName = classifyName;
 	}
-	public Integer getClassifySort() {
+
+	public int getClassifySort() {
 		return ClassifySort;
 	}
-	public void setClassifySort(Integer classifySort) {
+
+	public void setClassifySort(int classifySort) {
 		ClassifySort = classifySort;
 	}
+
+	@Override
+	public String toString() {
+		return "Classify [cid=" + cid + ", classifyName=" + classifyName + ", ClassifySort=" + ClassifySort + "]";
+	}
+	
+	
 	
 	
 	
