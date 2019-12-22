@@ -2,28 +2,34 @@ package model;
 
 
 public class Product {
-	private String pID;//产品id
+	private int pid;//产品id
 
-	private String issueName;
-	private String sID;
+	private String issueName;//产品名称
+	private String sid;//用户id
 	private String pictureSRC;
 	private float price;
-	private int cid;   //分类id
+	private int tid;   //分类id
 	private String introduction;
 	public Product(){
 		
 	}
-	public Product(String pID,String issuename,String sID,String  pictureSRC,float price,int cid,String introduction) {
-		this.pID =pID;
-		this.issueName = issuename;
-		this.sID = sID;
-		this.pictureSRC = pictureSRC;
-		this.price = price;
-		this.cid = cid;
-		this.introduction = introduction;
+	public int getPid() {
+		return pid;
+	}
+	public void setPid(int pid) {
+		this.pid = pid;
+	}
+	public String getIssueName() {
+		return issueName;
 	}
 	public void setIssueName(String issueName) {
 		this.issueName = issueName;
+	}
+	public String getSid() {
+		return sid;
+	}
+	public void setSid(String sid) {
+		this.sid = sid;
 	}
 	public String getPictureSRC() {
 		return pictureSRC;
@@ -37,29 +43,19 @@ public class Product {
 	public void setPrice(float price) {
 		this.price = price;
 	}
+	public int getTid() {
+		return tid;
+	}
+	public void setTid(int tid) {
+		this.tid = tid;
+	}
 	public String getIntroduction() {
 		return introduction;
 	}
 	public void setIntroduction(String introduction) {
 		this.introduction = introduction;
 	}
-	public String getpID() {
-		return pID;
-	}
-	public void setpID(String pID) {
-		this.pID = pID;
-	}
-	public String getsID() {
-		return sID;
-	}
-	public void setsID(String sID) {
-		this.sID = sID;
-	}
-	public int getCid() {
-		return cid;
-	}
-	public void setCid(int cid) {
-		this.cid = cid;
-	}
+	
+	
 	
 }

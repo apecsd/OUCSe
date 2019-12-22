@@ -2,7 +2,7 @@ package model;
 
 public class User {
 
-	private String sID;
+	private String sid;//”√ªßid
 	private String userName; 
 	private String sex;
 	private String phoneNum;
@@ -23,11 +23,12 @@ public class User {
 		this.password = password;
 	}
 
-	public String getsID() {
-		return sID;
+	
+	public String getSid() {
+		return sid;
 	}
-	public void setsID(String sID) {
-		this.sID = sID;
+	public void setSid(String sid) {
+		this.sid = sid;
 	}
 	public String getSex() {
 		return sex;

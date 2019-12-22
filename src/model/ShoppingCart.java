@@ -1,25 +1,39 @@
 package model;
 
-import java.util.ArrayList;
 
 public class ShoppingCart {
-int sid;
-ArrayList< Product> products;
+String sid;//用户id
+int cartId;//购物车id
+int pid;//添加购物车的产品id
 	
 	public ShoppingCart() {
-		ArrayList< Product> products = new ArrayList<Product>();
+		
 	}
-	public int getSid() {
+	
+	public String getSid() {
 		return sid;
 	}
-	public void setSid(int sid) {
+
+	public void setSid(String sid) {
 		this.sid = sid;
 	}
-	public ArrayList<Product> getProducts() {
-		return products;
+
+	public int getCartId() {
+		return cartId;
 	}
-	public void setProducts(ArrayList<Product> products) {
-		this.products = products;
+
+	public void setCartId(int cartId) {
+		this.cartId = cartId;
 	}
+
+	public int getPid() {
+		return pid;
+	}
+
+	public void setPid(int pid) {
+		this.pid = pid;
+	}
+
+	
 	
 }
