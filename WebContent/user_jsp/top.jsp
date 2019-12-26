@@ -16,7 +16,7 @@
 	if(userLoginInfo==null){
 		response.sendRedirect("user_login.jsp");
 	}else{
-		uid=userLoginInfo.getUid();
+		
 	}
 %>
 <body marginwidth="0" marginheight="0">

@@ -55,6 +55,11 @@ public class Product {
 	public void setIntroduction(String introduction) {
 		this.introduction = introduction;
 	}
+	@Override
+	public String toString() {
+		return "Product [pid=" + pid + ", issueName=" + issueName + ", sid=" + sid + ", pictureSRC=" + pictureSRC
+				+ ", price=" + price + ", tid=" + tid + ", introduction=" + introduction + "]";
+	}
 	
 	
 	

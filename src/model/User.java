@@ -8,7 +8,9 @@ public class User {
 	private String phoneNum;
 	private String password;
 	private int sellNum;
-	
+	public User() {
+		
+	}
 	public String getUserName() {
 		return userName;
 	}
@@ -47,6 +49,11 @@ public class User {
 	}
 	public void setSellNum(int sellNum) {
 		this.sellNum = sellNum;
+	}
+	@Override
+	public String toString() {
+		return "User [sid=" + sid + ", userName=" + userName + ", sex=" + sex + ", phoneNum=" + phoneNum + ", password="
+				+ password + ", sellNum=" + sellNum + "]";
 	}
 		
 }

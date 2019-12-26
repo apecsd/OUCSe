@@ -50,6 +50,10 @@ public class UserDaoImpl implements UserDao {
 			if(rs.next()){
 				user.setSid(sid);;
 				user.setPassword(password);
+				user.setUserName(rs.getString(2));
+				user.setSex(rs.getString(3));
+				user.setPhoneNum(rs.getString(4));
+				user.setSellNum(rs.getInt(6));
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -67,15 +71,16 @@ public class UserDaoImpl implements UserDao {
 		PreparedStatement ps = null;
 		int autoIncKey = -1;
 
-		String sql = "insert into user (sid, password) values(?, ?)";
+		String sql = "insert into user (sid,userName,password) values(?, ?, ?)";
 
 		try {
 			conn = DatabaseUtil.getConnection();
 			ps = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
 			ps.setString(1, user.getSid());
-			ps.setString(2, user.getPassword());
-
+			ps.setString(2, user.getUserName());
+			ps.setString(3, user.getPassword());
+            
 			ps.executeUpdate();
 
 			ResultSet rs = ps.getGeneratedKeys();
