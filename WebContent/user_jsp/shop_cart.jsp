@@ -1,9 +1,16 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+<base href="${pageContext.request.contextPath}/user_jsp/" />
+
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <title>购物车</title>
 <link href="css/shopcart.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="js/jquery.js"></script>
@@ -31,9 +38,9 @@
 <script type="text/javascript">
 var currPage;
 var totalPage;
-	$(document).ready(function(){
-		loadData();
-		});
+// 	$(document).ready(function(){
+// 		loadData();
+// 		});
 	function turnPage(obj){
 		switch(obj){
 		case 1:
@@ -131,31 +138,42 @@ var totalPage;
 <div class="gwc" style=" margin:auto;">
 	<table cellpadding="0" cellspacing="0" class="gwc_tb1">
 		<tr>
-			<td class="tb1_td1"><input id="allselect" type="checkbox"  class="allselect"/></td>
-			<td class="tb1_td1">全选</td>
-			<td class="tb1_td3">商品</td>
-			<td class="tb1_td4">商品信息</td>
-			<td class="tb1_td5">数量</td>
-			<td class="tb1_td6">小计</td>
-			<td class="tb1_td7">操作</td>
+<!-- 			<td class="tb1_td1"><input id="allselect" type="checkbox"  class="allselect"/></td> -->
+<!-- 			<td class="tb1_td1">全选</td> -->
+			<td class="tb1_td1">商品名称</td>
+			<td class="tb1_td2">商品信息</td>
+			<td class="tb1_td3">数量</td>
+			<td class="tb1_td4">单价</td>
+			<td class="tb1_td5">总价</td>
+			<td class="tb1_td6">操作</td>
 		</tr>
+		<c:forEach items="${shoppingCartsList}" var="item">
+		<tr>
+		    <td class="tb1_td1">${item.issueName}</td>
+			<td class="tb1_td2">${item.introduction}</td>
+			<td class="tb1_td3">${item.num}</td>
+			<td class="tb1_td4">${item.price}</td>
+			<td class="tb1_td5">${item.totalPrice}</td>
+			<td class="tb1_td6">购买</td>			
+		</tr>
+		</c:forEach>
 	</table>
 	
 	<table cellpadding="0" cellspacing="0" class="gwc_tb2" id="mydata">
 		
 	</table>
 	<br>
-  <nav style="text-align: center" id="pageShow">
-	<input type="hidden" id="turnPage"/>
-		<a id="first" href="javascript:loadData();" onclick="turnPage(1);">首页</a>
-		<a id="pre" href="javascript:loadData();" onclick="turnPage(2);">上一页</a>
-		<a id="next" href="javascript:loadData();" onclick="turnPage(3);">下一页</a> 
-		<a id="last" href="javascript:loadData();" onclick="turnPage(4);">尾页</a>  
-		第<span style="color:red;font-weight:600" id="curr"></span>页
-		共<span style="color:red;font-weight:600" id="total"></span>页
-		<input type="text" class="page-input" id="input_page">
-		<input type="submit" class="page-btn" value="跳转" onclick="loadData();return false;">
-	</nav>
+<!--   <nav style="text-align: center" id="pageShow"> -->
+<!-- 	<input type="hidden" id="turnPage"/> -->
+<!-- 		<a id="first" href="javascript:loadData();" onclick="turnPage(1);">首页</a> -->
+<!-- 		<a id="pre" href="javascript:loadData();" onclick="turnPage(2);">上一页</a> -->
+<!-- 		<a id="next" href="javascript:loadData();" onclick="turnPage(3);">下一页</a>  -->
+<!-- 		<a id="last" href="javascript:loadData();" onclick="turnPage(4);">尾页</a>   -->
+<!-- 		第<span style="color:red;font-weight:600" id="curr"></span>页 -->
+<!-- 		共<span style="color:red;font-weight:600" id="total"></span>页 -->
+<!-- 		<input type="text" class="page-input" id="input_page"> -->
+<!-- 		<input type="submit" class="page-btn" value="跳转" onclick="loadData();return false;"> -->
+<!-- 	</nav> -->
 	
 	<script type="text/javascript">
 	$(function(){

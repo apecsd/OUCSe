@@ -97,6 +97,33 @@ public class UserDaoImpl implements UserDao {
 		}
 		return autoIncKey;
 	}
+	@Override
+	public User findById(String sid) throws SQLException{
+		Connection conn = null;
+		PreparedStatement ps = null;
+		User user = new User();
+		String sql = "select * from user where sid=?";
+		conn = DatabaseUtil.getConnection();
+		try {
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, sid);
+			ResultSet rs = ps.executeQuery();
+			
+			if(rs.next()){
+				user.setSid(sid);
+				user.setUserName(rs.getString(2));
+				user.setSex(rs.getString(3));
+				user.setPhoneNum(rs.getString(4));
+				user.setPassword(rs.getString(5));
+				user.setSellNum(rs.getInt(6));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return user;
+	}
 
 	@Override
 public void update(User user) throws SQLException {
@@ -110,11 +137,6 @@ public void update(User user) throws SQLException {
 
 	}
 
-	@Override
-	public User findById(int id) throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public List<User> findAll() throws SQLException {

@@ -1,5 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -125,103 +125,40 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </div>
 </nav>
 
+<c:set var="count" value="1"/>
+<c:forEach items="${productList}" var="item">
+<c:if test="${count%4==1}">
 <div class="row" style="margin-left:34px;margin-right:34px;">
+</c:if>
   <div class="col-sm-6 col-md-3">
     <div class="thumbnail">
-      <img src="../upload/1493547055058.jpg" alt="pic1">
+      <img src="${pageContext.request.contextPath}/ImageServlet?picture=${item.pictureSRC}">
       <div class="caption">
-        <h3 style="color:#16a085">¥&nbsp59.00</h3>
-        <p style="color:#808080">东野圭吾-幻夜</p>
-        <p><a href="#" class="btn btn-primary" style="background:#16a085" role="button">详情</a></p>
+        <h3 style="color:#16a085">${item.price}</h3>
+        <p style="color:#808080">${item.issueName}</p>
+        <p><a href="${pageContext.request.contextPath}/DetailServlet?pid=${item.pid}" class="btn btn-primary" style="background:#16a085" role="button">详情</a></p>
       </div>
     </div>
   </div>
-  <div class="col-sm-6 col-md-3">
-    <div class="thumbnail">
-      <img src="../upload/1493546836921.jpg" alt="pic1">
-      <div class="caption">
-        <h3 style="color:#16a085">¥&nbsp59.00</h3>
-        <p style="color:#808080">JAVAEE实用开发指南</p>
-        <p><a href="#" class="btn btn-primary" style="background:#16a085" role="button">详情</a></p>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-6 col-md-3">
-    <div class="thumbnail">
-      <img src="../upload/1494256948369.png" alt="pic1">
-      <div class="caption">
-        <h3 style="color:#16a085">¥&nbsp59.00</h3>
-        <p style="color:#808080">红色皮夹小钱包</p>
-        <p><a href="#" class="btn btn-primary" style="background:#16a085" role="button">详情</a></p>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-6 col-md-3">
-    <div class="thumbnail">
-      <img src="../upload/1494257904029.png" alt="pic1">
-      <div class="caption">
-        <h3 style="color:#16a085">¥&nbsp59.00</h3>
-        <p style="color:#808080">电吉他</p>
-        <p><a href="#" class="btn btn-primary" style="background:#16a085" role="button">详情</a></p>
-      </div>
-    </div>
-  </div>
+<c:if test="${count%4==0}">
 </div>
+</c:if>
 
-<div class="row" style="margin-left:34px;margin-right:34px;">
-  <div class="col-sm-6 col-md-3">
-    <div class="thumbnail">
-      <img src="../upload/1494257255276.png" alt="pic1">
-      <div class="caption">
-        <h3 style="color:#16a085">¥&nbsp59.00</h3>
-        <p style="color:#808080">小天鹅洗衣机</p>
-        <p><a href="#" class="btn btn-primary" style="background:#16a085" role="button">详情</a></p>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-6 col-md-3">
-    <div class="thumbnail">
-      <img src="../upload/1494257047132.png" alt="pic1">
-      <div class="caption">
-        <h3 style="color:#16a085">¥&nbsp59.00</h3>
-        <p style="color:#808080">黑色小短裙</p>
-        <p><a href="#" class="btn btn-primary" style="background:#16a085" role="button">详情</a></p>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-6 col-md-3">
-    <div class="thumbnail">
-      <img src="../upload/1493630233102.jpg" alt="pic1">
-      <div class="caption">
-        <h3 style="color:#16a085">¥&nbsp59.00</h3>
-        <p style="color:#808080">捷安特手推车</p>
-        <p><a href="#" class="btn btn-primary" style="background:#16a085" role="button">详情</a></p>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-6 col-md-3">
-    <div class="thumbnail">
-      <img src="../upload/1493547279361.jpg" alt="pic1">
-      <div class="caption">
-        <h3 style="color:#16a085">¥&nbsp59.00</h3>
-        <p style="color:#808080">iPad 2018</p>
-        <p><a href="#" class="btn btn-primary" style="background:#16a085" role="button">详情</a></p>
-      </div>
-    </div>
-  </div>
-</div>
+<c:set var="count" value="${count+1}"/>
+</c:forEach>
 
-<nav style="text-align: center" id="pageShow">
-		<input type="hidden" id="turnPage"/>
-		<a id="first" href="javascript:loadData();" onclick="turnPage(1);">首页</a>
-		<a id="pre" href="javascript:loadData();" onclick="turnPage(2);">上一页</a>
-		<a id="next" href="javascript:loadData();" onclick="turnPage(3);">下一页</a> 
-		<a id="last" href="javascript:loadData();" onclick="turnPage(4);">尾页</a>  
-		第<span style="color:red;font-weight:600" id="curr"></span>页
-		共<span style="color:red;font-weight:600" id="total"></span>页
-		<input type="text" class="page-input" id="input_page">
-		<input type="submit" class="page-btn" value="跳转" onclick="loadData();return false;">
-</nav>
+
+<!-- <nav style="text-align: center" id="pageShow"> -->
+<!-- 		<input type="hidden" id="turnPage"/> -->
+<!-- 		<a id="first" href="javascript:loadData();" onclick="turnPage(1);">首页</a> -->
+<!-- 		<a id="pre" href="javascript:loadData();" onclick="turnPage(2);">上一页</a> -->
+<!-- 		<a id="next" href="javascript:loadData();" onclick="turnPage(3);">下一页</a>  -->
+<!-- 		<a id="last" href="javascript:loadData();" onclick="turnPage(4);">尾页</a>   -->
+<!-- 		第<span style="color:red;font-weight:600" id="curr"></span>页 -->
+<!-- 		共<span style="color:red;font-weight:600" id="total"></span>页 -->
+<!-- 		<input type="text" class="page-input" id="input_page"> -->
+<!-- 		<input type="submit" class="page-btn" value="跳转" onclick="loadData();return false;"> -->
+<!-- </nav> -->
 
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script> 

@@ -1,11 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
     
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<base href="${pageContext.request.contextPath}/user_jsp/" />
 	<meta charset="UTF-8">
 	<title>发布信息</title>
+	
 	<link rel="stylesheet" href="../admin_jsp/css/reset.css" />
 	<link rel="stylesheet" href="../admin_jsp/css/public.css" />
 	<link rel="stylesheet" href="../admin_jsp/css/content.css" />
@@ -16,13 +19,15 @@
 		<div class="public-nav">您当前的位置：<a href="">发布信息</a>></div>
 		<div class="public-content" style="margin-top: 0">
 			<div class="public-content-cont">
-			<form action="product_addProduct.action" method="post" enctype="multipart/form-data" style="margin:0 auto;width:50%" onsubmit="return checkForm(this);">
+			<form action="${pageContext.request.contextPath}/FabuServlet" method="post"  style="margin:0 auto;width:50%" >
 				<s:actionmessage style="font-size:18px;color:#000"/>
-				<input type="hidden" id="uuid" value="" name="creatorId"/>
+				
 				<div class="form-group">
 					<label for="">请选择分类</label>
 					<select name="classifyId" class="form-select" style="height: 30px;"id="classify">
-						
+						<c:forEach items="${typeList}" var="item">
+						<option value="${item.tid}">${item.tName}</option>
+						</c:forEach>
 					</select>
 				</div>
 				<div class="form-group">

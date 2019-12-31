@@ -1,6 +1,7 @@
 ﻿<%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
     <%@ page import="model.User" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!--商品详情页面 -->
 <!DOCTYPE html >
 <html>
@@ -19,7 +20,7 @@
    <div class="Detailspage"> 
 		<ul class="goodsphotos">
 			
-				<div class="bigphoto" ><img id="proLogo" style="width: 400px;height:400px; margin:0 auto;" src="../upload/1493630233102.jpg"></div>
+				<div class="bigphoto" ><img id="proLogo" style="width: 400px;height:400px; margin:0 auto;" src="${pageContext.request.contextPath}/ImageServlet?picture=${product.pictureSRC}"></div>
 				
 				<ol class="maintheme">
 					<div class="title"><a href="#"><p id="title"></p></a></div>
@@ -27,14 +28,14 @@
 					<div class="describe"><p id="describe"></p></div>
 					<div class="price-service">
 						<p class="price-discribe">售价</p>
-						<p class="price">￥250<span id="pro_price"></span></p>
+						<p class="price">￥${product.price}<span id="pro_price"></span></p>
 						<div class="service01">
 							<p class="service_describe01">卖家</p>
-							<p class="service_describe02" id="username">马太</p>
+							<p class="service_describe02" id="username">${user.userName}</p>
 						</div>
 						<div class="service02">
 							<p class="service_describe01">发布时间</p>
-							<p class="service_describe02" id="time">2019.08.11</p>
+							<p class="service_describe02" id="time">${product.fabuTime}</p>
 						</div>
 						<div class="service02">
 							<p class="service_describe01">类别</p>
@@ -42,7 +43,7 @@
 						</div>
 						<div class="service02">
 							<p class="service_describe01">库存</p>
-							<p class="service_describe02" id="hassum">1</p>
+							<p class="service_describe02" id="hassum">5</p>
 						</div>
 						
 					</div>

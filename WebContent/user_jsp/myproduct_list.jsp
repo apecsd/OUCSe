@@ -46,6 +46,15 @@
   <tr>
     <td colspan="8" class="line"></td>
   </tr>
+  <c:forEach items="${proList}" var="item">
+  <tr>
+    <td class="goods" colspan="2">${item.issueName} </td>
+     <td class="goods">${item.price} </td>
+      <td class="goods">${item.currentNum} </td>
+      <td class="goods">${item.fabuTime} </td>
+     
+  </tr>
+  </c:forEach>
 </table>
 <table width="100%" border="0" cellspacing="0" cellpadding="0" id="shopping">
 	

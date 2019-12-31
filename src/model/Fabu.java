@@ -1,21 +1,25 @@
 package model;
 
 public class Fabu {
-	int oid;//订单id
+	int fid;//发布id
 	int sum;//数量
 	int sellOrPur;//求购或求售
 	int tid;//分类id
 	int pid;//产品id
+	String sid;//用户id
 	public Fabu() {
 		
 		
 	}
-	public int getOid() {
-		return oid;
+	
+	public int getFid() {
+		return fid;
 	}
-	public void setOid(int oid) {
-		this.oid = oid;
+
+	public void setFid(int fid) {
+		this.fid = fid;
 	}
+
 	public int getSum() {
 		return sum;
 	}
@@ -40,4 +44,21 @@ public class Fabu {
 	public void setPid(int pid) {
 		this.pid = pid;
 	}
+
+	public String getSid() {
+		return sid;
+	}
+
+	public void setSid(String sid) {
+		this.sid = sid;
+	}
+
+	@Override
+	public String toString() {
+		return "Fabu [fid=" + fid + ", sum=" + sum + ", sellOrPur=" + sellOrPur + ", tid=" + tid + ", pid=" + pid
+				+ ", sid=" + sid + "]";
+	}
+
+	
+	
 }

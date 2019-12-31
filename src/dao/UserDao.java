@@ -14,7 +14,7 @@ public interface UserDao {
 
 	public void delete(int id) throws SQLException;
 
-	public User findById(int id) throws SQLException;
+	public User findById(String sid) throws SQLException;
 
 	public List<User> findAll() throws SQLException;
 }

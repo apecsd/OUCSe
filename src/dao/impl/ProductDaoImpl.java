@@ -1,5 +1,6 @@
 package dao.impl;
 
+import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -34,6 +35,8 @@ public class ProductDaoImpl implements ProductDao {
 			product.setPrice(rs.getFloat(5));
 			product.setTid(rs.getInt(6));
 			product.setIntroduction(rs.getString(7));
+			product.setCurrentNum(rs.getInt(8));
+			product.setFabuTime(rs.getString(9));
 			arrayList.add(product);
 		}
 		}catch (SQLException e) {
@@ -65,6 +68,8 @@ public class ProductDaoImpl implements ProductDao {
 			product.setPrice(rs.getFloat(5));
 			product.setTid(rs.getInt(6));
 			product.setIntroduction(rs.getString(7));
+			product.setCurrentNum(rs.getInt(8));
+			product.setFabuTime(rs.getString(9));
 			arrayList.add(product);
 		}
 		}catch (SQLException e) {
@@ -96,6 +101,8 @@ public class ProductDaoImpl implements ProductDao {
 			product.setPrice(rs.getFloat(5));
 			product.setTid(rs.getInt(6));
 			product.setIntroduction(rs.getString(7));
+			product.setCurrentNum(rs.getInt(8));
+			product.setFabuTime(rs.getString(9));
 			arrayList.add(product);
 		}
 		}catch (SQLException e) {
@@ -109,8 +116,9 @@ public class ProductDaoImpl implements ProductDao {
 	public int addProduct(Product product) throws SQLException {
 		 Connection conn = null;
 			PreparedStatement ps = null;
+			ResultSet rs = null;
 			int result=0;
-			String sql = "insert into product(issueName,sid,pictureSRC,price,tid,introduction) values(?,?,?,?,?,?)";
+			String sql = "insert into product(issueName,sid,pictureSRC,price,tid,introduction,currentNum,fabuTime) values(?,?,?,?,?,?,?,?)";
 			conn = DatabaseUtil.getConnection();
 			try{
 				ps=conn.prepareStatement(sql);
@@ -120,7 +128,16 @@ public class ProductDaoImpl implements ProductDao {
 				ps.setFloat(4, product.getPrice());
 				ps.setInt(5, product.getTid());
 				ps.setString(6, product.getIntroduction());
+				ps.setInt(7, product.getCurrentNum());
+				ps.setString(8, product.getFabuTime());
 				result = ps.executeUpdate();
+				rs = ps.getGeneratedKeys();
+				if (rs.next()) {
+
+			       result = rs.getInt(1);
+                   
+			    }     
+				
 			}catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -146,5 +163,32 @@ public class ProductDaoImpl implements ProductDao {
 			}
 			return result;
 	}
-
+	@Override
+	public Product findProductByPid(int pid) throws SQLException{
+		Connection conn = null;
+		PreparedStatement ps = null;
+		Product product  = new Product();		
+		String sql = "select * from product where pid=?";
+		conn = DatabaseUtil.getConnection();
+		try{
+		ps = conn.prepareStatement(sql);
+		ps.setInt(1, pid);
+		ResultSet rs = ps.executeQuery();
+		if(rs.next()){
+			product.setPid(rs.getInt(1));
+			product.setIssueName(rs.getString(2));
+			product.setSid(rs.getString(3));
+			product.setPictureSRC(rs.getString(4));
+			product.setPrice(rs.getFloat(5));
+			product.setTid(rs.getInt(6));
+			product.setIntroduction(rs.getString(7));
+			product.setCurrentNum(rs.getInt(8));
+			product.setFabuTime(rs.getString(9));
+		}
+		}catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return product;
+	}
 }

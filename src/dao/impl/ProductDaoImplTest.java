@@ -46,12 +46,14 @@ public class ProductDaoImplTest {
 		int result = -1;
 		ProductDaoImpl productDaoImpl = new ProductDaoImpl();
 		Product product = new Product();
-		product.setIssueName("ipad");
+		product.setIssueName("ipone X");
 		product.setTid(2);
-		product.setIntroduction("平板买了没怎么用，低价");
-		product.setPrice((float) 1000);
+		product.setIntroduction("买了没怎么用，低价");
+		product.setPrice((float) 1500);
 		product.setSid("17020031110");
 		product.setPictureSRC("D:\\软件工程\\picture\\9.jpg");
+		product.setCurrentNum(2);
+		product.setFabuTime("2019/12/29");
 		result = productDaoImpl.addProduct(product);
 		System.out.println(result);
 	}

@@ -5,7 +5,7 @@
 
 
    <welcome-file-list>
-    <welcome-file>/user_jsp/index.jsp</welcome-file>
+    <welcome-file>/user_jsp/index1.jsp</welcome-file>
   </welcome-file-list>
   
 </web-app>

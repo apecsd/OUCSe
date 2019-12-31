@@ -15,4 +15,6 @@ public interface ProductDao {
    public int addProduct(Product product) throws  SQLException;
    
    public int deleteProduct(int pid) throws SQLException;
+   
+   public Product findProductByPid(int pid) throws SQLException;
 }

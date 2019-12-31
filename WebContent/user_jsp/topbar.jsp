@@ -42,11 +42,11 @@
            </a>
         </div>   
         <div class="post_order">
-           <a href="fabu.jsp?uid=<%=uid %>" target="_blank">发布商品
+           <a href="${pageContext.request.contextPath}/ShowTypeServlet" target="_blank">发布商品
            </a>
         </div>        
         <div id="commonTopbar_my58menu" class="haschild">
-           <a id="commonTopbar_tomy58" target="_blank" href="right_menu.jsp">个人中心
+           <a id="commonTopbar_tomy58" target="_blank" href="user_jsp/right_menu.jsp">个人中心
            </a>
         </div>
    </div> 

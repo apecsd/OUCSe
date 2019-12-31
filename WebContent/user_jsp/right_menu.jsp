@@ -15,7 +15,7 @@
 		   <dl>
 			<dt>我的二手好物</dt>
 			<!--当前链接则添加class:active-->
-			<dd class="public-ifame-item"><a href="myproduct_list.jsp" class="active" target="content">我发布的</a></dd>
+			<dd class="public-ifame-item"><a href="${pageContext.request.contextPath}/ShowFabuServlet" class="active" target="content">我发布的</a></dd>
 			<dd class="public-ifame-item"><a href="product_searchMyBuyOrderByPage.action" target="content" >我购买的</a></dd>
 			<dd class="public-ifame-item"><a href="product_searchMySellOrderByPage.action" target="content">我卖出的</a></dd> 
 		   </dl>

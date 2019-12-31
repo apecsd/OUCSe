@@ -2,7 +2,7 @@
     <wb-module deploy-name="OUCSe">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <property name="context-root" value="OUCSe"/>
         <property name="java-output-path" value="/OUCSe/build/classes"/>
+        <property name="context-root" value="OUCSe"/>
     </wb-module>
 </project-modules>
